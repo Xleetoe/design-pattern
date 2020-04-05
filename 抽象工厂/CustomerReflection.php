@@ -1,5 +1,5 @@
 <?php
-include 'MaleFactory.php';
+include 'PersonCreate.php';
 
 /**
  * Created by PhpStorm.
@@ -11,21 +11,11 @@ class CustomerReflection
 {
     public function buy($name)
     {
-        try {
-            $reflect = new ReflectionClass($name);
-        } catch (ReflectionException $e) {
-            print_r('class:' . $name . '不存在');
-            die();
-        }
+        $personCreate = new PersonCreate();
+        $person = $personCreate->createPerson($name);
+        $person->getName();
+        $person->getSex();
 
-        if (!$reflect->isInstantiable()) {
-            print_r("类不可以被实例化");
-            die();
-        }
-
-        $factory = $reflect->newInstance();
-        $factory->createPerson()->getName();
-        $factory->createPerson()->getSex();
     }
 
 }
@@ -38,7 +28,7 @@ $name = null;
 $stdin = null;
 while ($name == null) {
     $stdin = fopen('php://stdin', 'r');
-    fwrite(STDOUT, '请输入想要使用的工厂名称：');
+    fwrite(STDOUT, '请输入想要使用的类名称：');
     $name = trim(fgets($stdin));
 }
 
