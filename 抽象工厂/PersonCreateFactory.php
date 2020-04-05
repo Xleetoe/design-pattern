@@ -9,7 +9,7 @@ include "Robot.php";
  * Date: 2020-04-04
  * Time: 22:30
  */
-class PersonCreate
+class PersonCreateFactory
 {
     public function createPerson($name)
     {

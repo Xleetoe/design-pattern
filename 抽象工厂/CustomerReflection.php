@@ -1,5 +1,5 @@
 <?php
-include 'PersonCreate.php';
+include 'PersonCreateFactory.php';
 
 /**
  * Created by PhpStorm.
@@ -11,7 +11,7 @@ class CustomerReflection
 {
     public function buy($name)
     {
-        $personCreate = new PersonCreate();
+        $personCreate = new PersonCreateFactory();
         $person = $personCreate->createPerson($name);
         $person->getName();
         $person->getSex();
